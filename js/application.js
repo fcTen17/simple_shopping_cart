@@ -17,19 +17,26 @@ const updateValues = () => {
     $('#total').text(granTotal);
 }
 
+
+
+
+
 $(document).ready(function () {
     updateValues();
-    $('.quantity input').on('input', function () {
-        updateValues();
-    });
-
+    
     var timeout;
-    $(document).on('input', 'tr input', function () {
+    $(document).on('input', '.quantity input', function () {
         clearTimeout(timeout);
         timeout = setTimeout(function () {
         updateValues();
         }, 1000);
     });
+    
+    /* $('.quantity input').on('input', function () {
+        updateValues();
+    }); */
+
+    
 
     $(document).on('click', '.remove', function (event) {
         $(this).closest('tr').remove();
@@ -51,6 +58,7 @@ $(document).ready(function () {
 
       });
     
+   
     
 
 
