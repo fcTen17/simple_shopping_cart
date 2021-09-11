@@ -2,7 +2,7 @@ const sum = (acc, val) => { return acc + val; }
 
 const updateValues = () => {
     let subTotalArr = [];
-    $('tbody tr').each(function (i, ele) {
+    $('#shoppingList tr').each(function (i, ele) {
         console.log($(ele).children().first().text());
         let unitPrice = parseFloat($(ele).find('.unitPrice').text());
         console.log('unitPrice: ' + unitPrice);
@@ -22,7 +22,39 @@ $(document).ready(function () {
     $('.quantity input').on('input', function () {
         updateValues();
     });
-  });
+
+    var timeout;
+    $(document).on('input', 'tr input', function () {
+        clearTimeout(timeout);
+        timeout = setTimeout(function () {
+        updateValues();
+        }, 1000);
+    });
+
+    $(document).on('click', '.remove', function (event) {
+        $(this).closest('tr').remove();
+        updateValues();
+    });
+
+    $('.addItem').on('submit', function (event) {
+        event.preventDefault();
+        var newItem = $(this).children('#newItem').val();
+        var newUnitPrice = $(this).children('#newUnitPrice').val();
+        console.log(newItem, newUnitPrice);
+
+        $('#shoppingList').append('<tr>' +
+        '<td class="item">' + newItem + '</td>' +
+        '<td class="unitPrice">' + newUnitPrice + '</td>' +
+        '<td class="quantity"><input type="number" value="0"/></td>' +
+        '<td class="remove"><button>X</button></td>' +
+        '<td class="subTotal"></td>');
+
+      });
+    
+    
+
+
+});
 
 
 
