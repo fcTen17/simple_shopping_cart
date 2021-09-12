@@ -34,14 +34,31 @@ body{
     max-width: 800px;
 }
 
+#shopTitle {
+    background-color: white;
+    border-bottom: 4px red solid;
+    padding-left: 10px;
+}
+
+.fa-shopping-cart {
+    padding-left: 10px;
+    padding-top: 10px;
+    color: red;
+}
+
 .table {
     background-color: white;
-    margin-top: 300px;
+    margin-top: 150px;
 }
 
 .tableHead {
     background-color: turquoise;
 }
+
+.quantity-box{
+    width:40px;
+    text-align: right;
+ }
 
 #quantityHead {
     max-width: 50px;
@@ -49,6 +66,11 @@ body{
 
 #removeHead {
     max-width: 60px;
+}
+
+.item {
+    font-weight: 800;
+    text-align: left;  
 }
 
 .remove {
@@ -86,5 +108,6 @@ body{
 
 #totalDisplay {
     background-color: white;
+    border: 2px red solid;
     padding: 10px;
 }

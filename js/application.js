@@ -33,19 +33,27 @@ $(document).ready(function () {
         updateValues();
     });
 
-    $('.addItem').on('submit', function (event) {
+    $('#addStock').on('submit', function (event) {
+        event.preventDefault();
+        var name = $(this).children('[name=name]').val();
+        var shares = $(this).children('[name=shares]').val();
+        var cost = $(this).children('[name=cost]').val();
+        var marketPrice = $(this).children('[name=marketPrice]').val();
+        console.log(name, shares, cost, marketPrice);
+    });
+    
+    $('.newItemForm').on('submit', function (event) {
         event.preventDefault();
         var newItem = $(this).children('#newItem').val();
         var newUnitPrice = $(this).children('#newUnitPrice').val();
         console.log(newItem, newUnitPrice);
 
-        $('#newItemForm').append('<tr>' +
+        $('#shoppingList').append('<tr>' +
         '<td class="item">' + newItem + '</td>' +
-        '<td class="unitPrice">' + newUnitPrice + '</td>' +
-        '<td class="quantity"><input type="number" value="0"/></td>' +
+        '<td >$<span class="unitPrice">'+ newUnitPrice +'</span>.00</td>'+
+        '<td class="quantity"><input class="quantity-box" type="number" value="0"/></td>' +
         '<td class="remove"><input type="button" class="btn btn-danger" value="Remove"></td>' +
-        '<td class="subTotal"></td>');
-
+        '<td >$<span class="subTotal"></span>.00</td>');
     });
 });
 
