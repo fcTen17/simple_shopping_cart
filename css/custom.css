@@ -1,0 +1,90 @@
+/*                 Setup                  */
+
+/*               Borderbox                */
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  /* clearfix */
+  .clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+  }
+  .clearfix:after {
+    clear: both;
+  }
+  .clearfix {
+    clear: both;
+    *zoom: 1;
+  }
+/*               End of Setup             */
+
+/* Table Styles */
+
+body{
+    background-image: url('/Users/fernandocesar/Desktop/Altcademy/Jqueryium/simple_shopping_cart/simple_shopping_cart/rsz_nrd-d6tu_l3chle-unsplash.jpg');
+    background-size: cover;
+    height: 100vh;
+    padding:0;
+    margin:0;
+}
+
+.container {
+    max-width: 800px;
+}
+
+.table {
+    background-color: white;
+    margin-top: 300px;
+}
+
+.tableHead {
+    background-color: turquoise;
+}
+
+#quantityHead {
+    max-width: 50px;
+}
+
+#removeHead {
+    max-width: 60px;
+}
+
+.remove {
+    text-align: center;
+    max-width: 60px;
+}
+
+.remove > button {
+    text-align: center;
+    background-color: red;
+    height: 30px;
+    width: 40px;
+    
+}
+
+.addItem {
+    align-items: center;
+}
+
+#newItemDiv {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+#totalDiv {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+
+#innerTotalDiv {
+    
+}
+
+#totalDisplay {
+    background-color: white;
+    padding: 10px;
+}

@@ -17,10 +17,6 @@ const updateValues = () => {
     $('#total').text(granTotal);
 }
 
-
-
-
-
 $(document).ready(function () {
     updateValues();
     
@@ -32,13 +28,7 @@ $(document).ready(function () {
         }, 1000);
     });
     
-    /* $('.quantity input').on('input', function () {
-        updateValues();
-    }); */
-
-    
-
-    $(document).on('click', '.remove', function (event) {
+    $(document).on('click', '.remove', function () {
         $(this).closest('tr').remove();
         updateValues();
     });
@@ -49,19 +39,14 @@ $(document).ready(function () {
         var newUnitPrice = $(this).children('#newUnitPrice').val();
         console.log(newItem, newUnitPrice);
 
-        $('#shoppingList').append('<tr>' +
+        $('#newItemForm').append('<tr>' +
         '<td class="item">' + newItem + '</td>' +
         '<td class="unitPrice">' + newUnitPrice + '</td>' +
         '<td class="quantity"><input type="number" value="0"/></td>' +
-        '<td class="remove"><button>X</button></td>' +
+        '<td class="remove"><input type="button" class="btn btn-danger" value="Remove"></td>' +
         '<td class="subTotal"></td>');
 
-      });
-    
-   
-    
-
-
+    });
 });
 
 
