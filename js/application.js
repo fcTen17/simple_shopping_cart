@@ -16,13 +16,7 @@ const updateValues = () => {
     let childrenNum = $('#shoppingList').children()
     console.log('childrenNum: ' + childrenNum.length);
     let granTotal;
-    if (childrenNum.length > 1) {
-        granTotal = subTotalArr.reduce(sum);        
-    } else if (childrenNum.length === 1) {
-        granTotal = subTotalArr[0];
-    } else if(childrenNum.length === 0) {
-        granTotal = 0;
-    }
+    granTotal = subTotalArr.reduce(sum, 0); 
     $('#total').text(granTotal);
 }
 
