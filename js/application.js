@@ -13,7 +13,16 @@ const updateValues = () => {
         $(ele).find('.subTotal').text(subTotal);
         subTotalArr.push(subTotal);
     });
-    let granTotal = subTotalArr.reduce(sum);
+    let childrenNum = $('#shoppingList').children()
+    console.log('childrenNum: ' + childrenNum.length);
+    let granTotal;
+    if (childrenNum.length > 1) {
+        granTotal = subTotalArr.reduce(sum);        
+    } else if (childrenNum.length === 1) {
+        granTotal = subTotalArr[0];
+    } else if(childrenNum.length === 0) {
+        granTotal = 0;
+    }
     $('#total').text(granTotal);
 }
 
@@ -30,18 +39,9 @@ $(document).ready(function () {
     
     $(document).on('click', '.remove', function () {
         $(this).closest('tr').remove();
-        updateValues();
+        updateValues();       
     });
-
-    $('#addStock').on('submit', function (event) {
-        event.preventDefault();
-        var name = $(this).children('[name=name]').val();
-        var shares = $(this).children('[name=shares]').val();
-        var cost = $(this).children('[name=cost]').val();
-        var marketPrice = $(this).children('[name=marketPrice]').val();
-        console.log(name, shares, cost, marketPrice);
-    });
-    
+ 
     $('.newItemForm').on('submit', function (event) {
         event.preventDefault();
         var newItem = $(this).children('#newItem').val();
@@ -54,8 +54,12 @@ $(document).ready(function () {
         '<td class="quantity"><input class="quantity-box" type="number" value="0"/></td>' +
         '<td class="remove"><input type="button" class="btn btn-danger" value="Remove"></td>' +
         '<td >$<span class="subTotal"></span>.00</td>');
+
+        updateValues();
     });
-});
+}); 
+
+
 
 
 
